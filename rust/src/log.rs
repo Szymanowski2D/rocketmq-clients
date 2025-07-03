@@ -31,6 +31,7 @@ pub(crate) fn terminal_logger() -> Logger {
         .overflow_strategy(OverflowStrategy::Block)
         .chan_size(1)
         .build()
+        .filter_level(slog::Level::Error)
         .fuse();
     Logger::root(drain, o!())
 }
